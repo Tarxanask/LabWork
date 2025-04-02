@@ -407,3 +407,131 @@
 
 # 2025-03-31 18:16:28.890290
 +Y
+
+# 2025-04-02 23:50:19.266180
++/add LABWORK
+
+# 2025-04-02 23:50:24.836106
++NO
+
+# 2025-04-02 23:50:57.746602
++/add website instance main.py 
+
+# 2025-04-02 23:53:19.316022
++i want you to modify home.html so that there will new button of editing the notes right next to the button of closing, you should implement it so that while pushing the button of editing we will find the note from the database and edit it
+
+# 2025-04-02 23:54:35.335433
++Yes
+
+# 2025-04-02 23:56:02.048637
++Y
+
+# 2025-04-03 00:01:08.491004
++can you add some style to edit and delete buttons, make the, a little bit in distance from each other
+
+# 2025-04-03 00:02:39.508522
++but you didn't change anything, please try one more time
+
+# 2025-04-03 00:06:29.776165
++okay now they are even worse, they were on the right side the end of the note and i liked it, return that location, you can try this style of buttons but modify it to our code <button class="edit-btn">Edit</button>
++<button class="close-btn">Close</button>
++
++<style>
++  .edit-btn {
++    background-color: #4CAF50;
++    color: white;
++    border: none;
++    padding: 10px 20px;
++    cursor: pointer;
++    border-radius: 5px;
++  }
++
++  .edit-btn:hover {
++    background-color: #45a049;
++  }
++
++  .close-btn {
++    background-color: #f44336;
++    color: white;
++    border: none;
++    padding: 10px 20px;
++    cursor: pointer;
++    border-radius: 5px;
++  }
++
++  .close-btn:hover {
++    background-color: #d32f2f;
++  }
++</style><button class="edit-btn">Edit</button>
++<button class="close-btn">Close</button>
++
++<style>
++  .edit-btn {
++    background-color: #4CAF50;
++    color: white;
++    border: none;
++    padding: 10px 20px;
++    cursor: pointer;
++    border-radius: 5px;
++  }
++
++  .edit-btn:hover {
++    background-color: #45a049;
++  }
++
++  .close-btn {
++    background-color: #f44336;
++    color: white;
++    border: none;
++    padding: 10px 20px;
++    cursor: pointer;
++    border-radius: 5px;
++  }
++
++  .close-btn:hover {
++    background-color: #d32f2f;
++  }
++</style>
+
+# 2025-04-03 00:08:59.956004
++i like everything the syles is perfect i just need the buttons to be at the previoous right position like it was on this part of the code {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
++%}
++<h1 align="center" style="color: white;">Notes</h1>
++<ul class="list-group list-group-flush" id="notes">
++  {% for note in user.notes %}
++  <li class="list-group-item">
++    {{ note.data }}
++    <button type="button" class="close" onClick="deleteNote({{ note.id }})">
++      <span aria-hidden="true">&times;</span>
++    </button>
++  </li>
++  {% endfor %}
++</ul>
++<form method="POST">
++  <textarea name="note" id="note" class="form-control"></textarea>
++  <br />
++  <div align="center">
++    <button type="submit" class="btn btn-primary">Add Note</button>
++  </div>
++</form>
++{% endblock %}{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
++%}
++<h1 align="center" style="color: white;">Notes</h1>
++<ul class="list-group list-group-flush" id="notes">
++  {% for note in user.notes %}
++  <li class="list-group-item">
++    {{ note.data }}
++    <button type="button" class="close" onClick="deleteNote({{ note.id }})">
++      <span aria-hidden="true">&times;</span>
++    </button>
++  </li>
++  {% endfor %}
++</ul>
++<form method="POST">
++  <textarea name="note" id="note" class="form-control"></textarea>
++  <br />
++  <div align="center">
++    <button type="submit" class="btn btn-primary">Add Note</button>
++  </div>
++</form>
++{% endblock %}

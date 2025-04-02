@@ -3,11 +3,12 @@
 <h1 align="center" style="color: white;">Notes</h1>
 <ul class="list-group list-group-flush" id="notes">
   {% for note in user.notes %}
-  <li class="list-group-item">
+  <li class="list-group-item note-item">
     {{ note.data }}
-    <button type="button" class="close" onClick="deleteNote({{ note.id }})">
-      <span aria-hidden="true">&times;</span>
-    </button>
+    <div class="button-container">
+      <button class="edit-btn" onclick="window.location.href='/edit-note/{{ note.id }}'">Edit</button>
+      <button class="close-btn" onClick="deleteNote({{ note.id }})">Close</button>
+    </div>
   </li>
   {% endfor %}
 </ul>

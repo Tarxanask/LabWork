@@ -22,6 +22,56 @@
         background-attachment: fixed;
         min-height: 100vh;
       }
+      .edit-button {
+        margin-right: 10px;
+        color: #007bff; /* Bootstrap primary color */
+        text-decoration: none; /* Remove underline */
+      }
+      .delete-button {
+        margin-left: 10px;
+        background: none;
+        border: none;
+        color: #dc3545; /* Bootstrap danger color */
+        cursor: pointer;
+      }
+      .edit-btn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-left: 5px;
+      }
+
+      .edit-btn:hover {
+        background-color: #45a049;
+      }
+
+      .close-btn {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-left: 5px;
+      }
+
+      .close-btn:hover {
+        background-color: #d32f2f;
+      }
+      .note-item {
+        position: relative; /* Make the note item a positioning context */
+        padding-right: 100px; /* Make space for the buttons */
+      }
+
+      .button-container {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%); /* Vertically center the buttons */
+      }
     </style>
 
     <title>{% block title %}Home{% endblock %}</title>
