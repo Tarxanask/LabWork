@@ -535,3 +535,12 @@
 +  </div>
 +</form>
 +{% endblock %}
+
+# 2025-04-03 17:54:01.400615
++can you change the color of the Header Login to white in login.html and the header sign up in sign_up.html
+
+# 2025-04-03 17:54:21.619567
++/add website main.py 
+
+# 2025-04-03 17:54:51.638472
++can you change the color of the Header Login to white in login.html and the header sign up in sign_up.htmlcan you change the color of the Header Login to white in login.html and the header sign up in sign_up.html
