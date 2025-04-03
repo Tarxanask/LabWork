@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block title %}Edit Tag{% endblock %} {% block content %}
+<h1 align="center" style="color: white;">Edit Tag</h1>
+<form method="POST">
+    <div class="form-group">
+        <label for="tag_name" style="color: white;">Tag Name</label>
+        <input type="text" class="form-control" id="tag_name" name="tag_name" value="{{ tag.name }}" />
+    </div>
+    <br />
+    <div align="center">
+        <button type="submit" class="btn btn-primary">Update Tag</button>
+    </div>
+</form>
+{% endblock %}

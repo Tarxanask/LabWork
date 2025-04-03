@@ -1,22 +1,66 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
-%}
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content %}
 <h1 align="center" style="color: white;">Notes</h1>
-<ul class="list-group list-group-flush" id="notes">
-  {% for note in user.notes %}
-  <li class="list-group-item note-item">
-    {{ note.data }}
-    <div class="button-container">
-      <button class="edit-btn" onclick="window.location.href='/edit-note/{{ note.id }}'">Edit</button>
-      <button class="close-btn" onClick="deleteNote({{ note.id }})">Close</button>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3 style="color: white;">Tags</h3>
+        <ul class="list-group">
+            {% for tag in tags %}
+            <li class="list-group-item d-flex justify-content-between align-items-center" style="color: white; background-color: transparent; border-color: white;">
+                {{ tag.name }}
+                <div>
+                    <a href="/edit-tag/{{ tag.id }}" class="edit-button">Edit</a>
+                    <form method="POST" action="/delete-tag/{{ tag.id }}" style="display: inline;">
+                        <button type="submit" class="delete-button">Delete</button>
+                    </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <br>
+        <h3 style="color: white;">Add a Tag</h3>
+        <form method="POST" action="/create-tag">
+            <div class="form-group">
+                <input type="text" class="form-control" id="tag_name" name="tag_name" placeholder="Enter tag name" />
+            </div>
+            <button type="submit" class="btn btn-primary">Add Tag</button>
+        </form>
     </div>
-  </li>
-  {% endfor %}
-</ul>
-<form method="POST">
-  <textarea name="note" id="note" class="form-control"></textarea>
-  <br />
-  <div align="center">
-    <button type="submit" class="btn btn-primary">Add Note</button>
-  </div>
-</form>
+    <div class="col-md-8">
+        <h3 style="color: white;">Add a Note</h3>
+        <form method="POST">
+            <div class="form-group">
+                <label for="note" style="color: white;">Note</label>
+                <textarea name="note" id="note" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="tag_id" style="color: white;">Select Tag</label>
+                <select class="form-control" id="tag_id" name="tag_id">
+                    {% for tag in tags %}
+                    <option value="{{ tag.id }}">{{ tag.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Note</button>
+        </form>
+        <br>
+        {% for tag in tags %}
+        <h3 style="color: white;">Notes for {{ tag.name }}</h3>
+        <ul class="list-group list-group-flush" id="notes">
+            {% for note in notes %}
+            {% if note.tag_id == tag.id %}
+            <li class="list-group-item note-item" style="color: white; background-color: transparent; border-color: white;">
+                {{ note.data }}
+                <div class="button-container">
+                    <button class="edit-btn" onclick="window.location.href='/edit-note/{{ note.id }}'">Edit</button>
+                    <button class="close-btn" onClick="deleteNote({{ note.id }})">Close</button>
+                </div>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        <br>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
