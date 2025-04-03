@@ -1,6 +1,4 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content %}
-<h1 align="center" style="color: white;">Notes</h1>
-
 <div class="container-fluid">
     <div class="row">
         <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar" style="position: fixed; top: 0; left: 0; bottom: 0; width: 220px; padding: 2.5rem 1rem; overflow-y: auto; background-color: #36393f !important; color: white !important;">
@@ -9,9 +7,9 @@
                 <ul class="nav flex-column" style="background-color: #2f3136;">
                     {% for tag in tags %}
                     <li class="nav-item" style="color: white !important; background-color: #2f3136 !important; border: none !important;">
-                        <a class="nav-link" href="#" style="color: white !important;">
-                            {{ tag.name }}
-                            <div style="display: inline;">
+                        <a class="nav-link" href="#" style="color: white !important; padding: 0.75rem;">
+                            @{{ tag.name }}
+                            <div style="display: inline; float: right;">
                                 <a href="/edit-tag/{{ tag.id }}" class="edit-button">Edit</a>
                                 <form method="POST" action="/delete-tag/{{ tag.id }}" style="display: inline;">
                                     <button type="submit" class="delete-button">Delete</button>
@@ -33,9 +31,10 @@
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="margin-left: 220px;">
+            <h1 align="center" style="color: white;">Notes</h1>
             <div style="padding: 20px;">
-                <div style="border: 1px solid white; padding: 10px; margin-bottom: 20px;">
-                    <h3 align="center" style="color: white;">Add a Note</h3>
+                <div style="border: 1px solid white; padding: 10px; margin-bottom: 20px; text-align: center;">
+                    <h3 style="color: white;">Add a Note</h3>
                     <form method="POST">
                         <div class="form-group">
                             <label for="note" style="color: white;">Note</label>
@@ -55,7 +54,7 @@
                 <br>
                 {% for tag in tags %}
                 <div style="border: 1px solid white; padding: 10px; margin-bottom: 20px;">
-                    <h3 align="center" style="color: white;">Notes for {{ tag.name }}</h3>
+                    <h3 align="center" style="color: white;">Notes for @{{ tag.name }}</h3>
                     <ul class="list-group list-group-flush" id="notes">
                         {% for note in notes %}
                         {% if note.tag_id == tag.id %}
