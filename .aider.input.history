@@ -1027,3 +1027,9 @@
 
 # 2025-04-04 22:35:01.333775
 +can you add some styles to that logout button or to the space near it, put it on the lower part of the side bar if possible
+
+# 2025-04-04 22:42:10.307620
++now you should add the logic that if the user signs up with already existing mail we flash out error message email already exists (we had this logic before). After the user signs up with a new mail we should redirect him into login page
+
+# 2025-04-04 22:44:03.397489
++and by the way each time when i rerun the website the old accounts that i created disappear, can you fix it
