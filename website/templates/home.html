@@ -27,6 +27,11 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Add Tag</button>
                 </form>
+                 <div style="position: absolute; bottom: 20px; width: 100%; text-align: center;">
+                    <form method="GET" action="/logout">
+                        <button type="submit" class="btn btn-danger" style="width: 80%; background-color: #dc3545; border-color: #dc3545;">Logout</button>
+                    </form>
+                </div>
             </div>
         </nav>
 
@@ -62,7 +67,7 @@
                             {{ note.data }}
                             <div class="button-container">
                                 <button class="edit-btn" onclick="window.location.href='/edit-note/{{ note.id }}'">Edit</button>
-                                <button class="close-btn" onClick="deleteNote({{ note.id }})">Close</button>
+                                <button class="close-btn" onClick="deleteNote('{{ note.id }}')">Close</button>
                             </div>
                         </li>
                         {% endif %}

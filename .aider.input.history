@@ -1033,3 +1033,21 @@
 
 # 2025-04-04 22:44:03.397489
 +and by the way each time when i rerun the website the old accounts that i created disappear, can you fix it
+
+# 2025-04-04 22:54:35.540566
++i see vs code tells me there are 3 problems in home.html
+
+# 2025-04-04 22:55:28.212835
++i think it is 56 th line 
+
+# 2025-04-04 22:57:36.351861
++i mean it seems to me that the debuggers means this line with 3 problems button class="close-btn" onClick="deleteNote( note.id )"Close/button
+
+# 2025-04-04 22:59:10.941076
++i do not see that change to be honest
+
+# 2025-04-04 23:00:33.103171
++okay can you return my project to one prompt ago, i do not like what you did now
+
+# 2025-04-04 23:03:28.529040
++Property assignment expected.javascript , expected.javascript , expected.javascript, this are 3 problems debugger indicates me in the line                    button class="close-btn" onClick="deleteNote( note.id )"Close/button                   button class="close-btn" onClick="deleteNote( note.id )"Close/button
